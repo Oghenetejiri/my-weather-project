@@ -42,6 +42,8 @@ function showTemperature(response) {
   document.querySelector("#feels-like").innerHTML = Math.round(
     response.data.main.feels_like
   );
+  let placeElement = document.querySelector("#place");
+  placeElement.innerHTML = response.data.name;
 }
 
 function showCity(event) {
