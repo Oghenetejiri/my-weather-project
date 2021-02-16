@@ -34,7 +34,7 @@ function showTemperature(response) {
   document.querySelector("#place").innerHTML = response.data.name;
   let temperature = Math.round(response.data.main.temp);
   let h3 = document.querySelector("#actual-temp");
-  h3.innerHTML = `${temperature}°C`;
+  h3.innerHTML = `${temperature}`;
   document.querySelector("#humidity").innerHTML = response.data.main.humidity;
   document.querySelector("#wind").innerHTML = Math.round(
     response.data.wind.speed
