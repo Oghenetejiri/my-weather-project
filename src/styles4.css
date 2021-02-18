@@ -14,14 +14,14 @@ h6 {
   text-align: center;
 }
 form {
-  text-align: left;
+  text-align: center;
   padding: 20px;
 }
 button {
-  display: block;
-  margin: 0px auto;
+  position: relative;
+  left: 10px;
   border: 1px solid blue;
-  border-radius: 10px;
+  border-radius: 5px;
   background: blue;
   color: white;
   font-size: small;

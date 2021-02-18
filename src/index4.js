@@ -33,7 +33,7 @@ function confirmLocation(position) {
 function showTemperature(response) {
   let h1 = document.querySelector("#place");
   let h3 = document.querySelector("#actual-temp");
-  let temperature = Math.round(response.data.main.temp);
+  let celciusTemperature = Math.round(response.data.main.temp);
   let humidityElement= document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   let placeElement = document.querySelector("#place");
@@ -41,7 +41,7 @@ function showTemperature(response) {
   let feelsLikeElement = document.querySelector("#feels-like");
 
   h1.innerHTML = response.data.name;
-  h3.innerHTML = `${temperature}`;
+  h3.innerHTML = `${celciusTemperature}`;
   humidityElement.innerHTML = response.data.main.humidity;
   windElement.innerHTML = Math.round(response.data.wind.speed);
   feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like);
@@ -60,7 +60,30 @@ function getCurrentPosition() {
   navigator.geolocation.getCurrentPosition(confirmLocation);
 }
 
-let form = document.querySelector("#location-form");
-form.addEventListener("submit", showCity);
+function convertTempToFahrenheit(event){
+  event.preventDefault();
+  let temperatureElement = document.querySelector("#actual-temp");
+  let farenheitTemperature = (celciusTemperature * 9) / 5 + 32;
+  temperatureElement.innerHTML = Math.round(farenheitTemperature);
+}
+
+function convertTempToCelcius(event){
+  event.preventDefault();
+  let h3 = document.querySelector("#actual-temp");
+  h3.innerHTML = celciusTemperature;
+  
+}
+
+let celciusTemperature = null;
+
+let farenheitLink = document.querySelector("#fahrenheit-link");
+farenheitLink.addEventListener("click", convertTempToFahrenheit);
+
+let celciusLink = document.querySelector("#celcius-link");
+celciusLink.addEventListener("click", convertTempToCelcius); 
+
 let button = document.querySelector("button");
 button.addEventListener("click", getCurrentPosition);
+
+let form = document.querySelector("#location-form");
+form.addEventListener("submit", showCity);
