@@ -31,19 +31,22 @@ function confirmLocation(position) {
 }
 
 function showTemperature(response) {
-  document.querySelector("#place").innerHTML = response.data.name;
-  let temperature = Math.round(response.data.main.temp);
+  let h1 = document.querySelector("#place");
   let h3 = document.querySelector("#actual-temp");
-  h3.innerHTML = `${temperature}`;
-  document.querySelector("#humidity").innerHTML = response.data.main.humidity;
-  document.querySelector("#wind").innerHTML = Math.round(
-    response.data.wind.speed
-  );
-  document.querySelector("#feels-like").innerHTML = Math.round(
-    response.data.main.feels_like
-  );
+  let temperature = Math.round(response.data.main.temp);
+  let humidityElement= document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
   let placeElement = document.querySelector("#place");
+  let weatherIconElement = document.querySelector("#weather-icon");
+  let feelsLikeElement = document.querySelector("#feels-like");
+
+  h1.innerHTML = response.data.name;
+  h3.innerHTML = `${temperature}`;
+  humidityElement.innerHTML = response.data.main.humidity;
+  windElement.innerHTML = Math.round(response.data.wind.speed);
+  feelsLikeElement.innerHTML = Math.round(response.data.main.feels_like);
   placeElement.innerHTML = response.data.name;
+  weatherIconElement.setAttribute("src",`http://openweathermap.org/img/wn/${response.data.weather[0].icon}@2x.png`);
 }
 
 function showCity(event) {
