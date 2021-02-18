@@ -6,6 +6,9 @@ h5 {
   text-align: center;
   color: blue;
 }
+h3 {
+  text-align: left;
+}
 h2,
 h6 {
   text-align: center;
@@ -42,7 +45,7 @@ button {
   padding: 30px;
   border-radius: 30px;
   color: black;
-  background: burlywood;
+  background: linear-gradient(-225deg, #69eacb 0%, #eaccf8 48%, #6654f1 100%);
 }
 .wrapper {
   text-align: center;
@@ -67,5 +70,4 @@ span.value2 {
 }
 strong {
   font-size: 40px;
-  line-height: 1px;
 }
