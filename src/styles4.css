@@ -71,3 +71,7 @@ span.value2 {
 strong {
   font-size: 40px;
 }
+.in-action {
+  color: black;
+  cursor: default;
+}

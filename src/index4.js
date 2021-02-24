@@ -33,7 +33,7 @@ function confirmLocation(position) {
 function showTemperature(response) {
   let h1 = document.querySelector("#place");
   let h3 = document.querySelector("#actual-temp");
-  let celciusTemperature = Math.round(response.data.main.temp);
+  celciusTemperature = Math.round(response.data.main.temp);
   let humidityElement= document.querySelector("#humidity");
   let windElement = document.querySelector("#wind");
   let placeElement = document.querySelector("#place");
@@ -62,6 +62,8 @@ function getCurrentPosition() {
 
 function convertTempToFahrenheit(event){
   event.preventDefault();
+  celciusLink.classList.remove("in-action");
+  farenheitLink.classList.add("in-action");
   let temperatureElement = document.querySelector("#actual-temp");
   let farenheitTemperature = (celciusTemperature * 9) / 5 + 32;
   temperatureElement.innerHTML = Math.round(farenheitTemperature);
@@ -69,6 +71,8 @@ function convertTempToFahrenheit(event){
 
 function convertTempToCelcius(event){
   event.preventDefault();
+  farenheitLink.classList.remove("in-action");
+  celciusLink.classList.add("in-action");
   let h3 = document.querySelector("#actual-temp");
   h3.innerHTML = celciusTemperature;
   
